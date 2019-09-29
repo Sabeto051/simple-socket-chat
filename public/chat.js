@@ -28,5 +28,9 @@ socket.on('chat:message', data => {
 })
 
 socket.on('chat:typing', data => {
-  actions.innerHTML = `<p><em>${data} is typing a message.</em></p>`
+  if (data === '' || data === null) {
+    actions.innerHTML = `<p><em>-Stranger- is typing a message.</em></p>`
+  } else {
+    actions.innerHTML = `<p><em>${data} is typing a message.</em></p>`
+  }
 })
